@@ -99,9 +99,6 @@ for i, row in store_lat_lon_pd.iterrows():
         store_rating_df = pd.DataFrame({'StoreID': store,
                                       'Rating':[0],
                                       'Name': 'Not found'})
-        
-    
-
 
 try: 
     os.remove(r'\\hftdata02\sysdata02\RedCat\Exports\FourSquare_Rating_Data.xlsx')
@@ -121,23 +118,3 @@ store_rating_list_df.to_excel(rating_writer,
                     index=False)
 
 
-# for explore
-'''
-url = 'https://api.foursquare.com/v2/venues/explore'
-params = dict(
-  client_id = 'U35350IEZB4GPFJM0RGD4JC0IFNBVDRYSEZLEIZYEXFJJSFN',
-  client_secret = 'NXHB0CMRGYYABMI3RG53CKA1YLXRSVDO0YL25YISLEG5LRKH',
-  v='20180101',
-  ll='37.143137,-93.296828',
-  intent='match',
-  query='harbor freight',
-  limit=1
-  )
-resp = requests.get(url=url, params=params)
-data = json.loads(resp.text)
-#print(data)
-name = data['response']['groups'][0]['items'][0]['venue']['name']
-rating = data['response']['groups'][0]['items'][0]['venue']['rating']
-city = data['response']['groups'][0]['items'][0]['venue']['location']['city']
-print(city + ' ' + name + ' ' +str(rating))
-'''
