@@ -52,6 +52,8 @@ try:
                           'Users Count': [usersCount]})
     store_stat_list_df = pd.concat([store_stat_list_df,store_stat_df]) 
 except IndexError:
+
+
     try:
         state = data['response']['venues'][0]['location']['state']
     except:
@@ -60,6 +62,7 @@ except IndexError:
         store = data['response']['venues'][0]['storeId']
     except:
         store = 'store Id not found'
+ 
     store_stat_df = pd.DataFrame({'StoreID': store,
                                   'City': city,
                                   'State': state,
